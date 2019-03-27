@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.List;
 
@@ -52,4 +53,21 @@ public class PrincipalVO extends BaseVO {
     /** 菜单列表*/
     @ApiModelProperty(value = "菜单列表", position = 26)
     private List<String> menuCodeList;
+
+    /** 组织id */
+    @ApiModelProperty(value = "组织id", position = 22, required = true)
+    private String organizationId;
+
+    /** 角色id */
+    @ApiModelProperty(value = "角色id", position = 24, required = true)
+    private String roleId;
+
+    @ApiModelProperty(value = "组织", position = 26, required = true)
+    private String organizationName;
+
+    @ApiModelProperty(value = "角色", position = 28, required = true)
+    private String roleName;
+
+
+
 }

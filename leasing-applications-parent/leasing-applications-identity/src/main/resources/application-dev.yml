@@ -4,9 +4,9 @@ spring:
     # 连接地址
     url: jdbc:mysql://rm-uf639z9s4zf5n7c9gko.mysql.rds.aliyuncs.com:3306/keyproject?useUnicode=true&characterEncoding=utf-8&useSSL=false
     # 用户名
-    username: root
+    username: asher
     # 密码-
-    password: q243485908
+    password: Qq243485
     # 驱动类型
     driver-class-name: com.mysql.jdbc.Driver
     # 连接池类型

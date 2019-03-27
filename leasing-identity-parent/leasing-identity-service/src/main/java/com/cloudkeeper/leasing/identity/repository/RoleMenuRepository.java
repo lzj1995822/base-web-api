@@ -21,7 +21,7 @@ public interface RoleMenuRepository extends BaseRepository<RoleMenu> {
      * @return 角色菜单关系列表
      */
     @Nonnull
-    List<RoleMenu> findAllByRoleId(@Nonnull String roleId);
+    List<RoleMenu> findAllByRoleIdOrderByCreatedAtAsc(@Nonnull String roleId);
 
     /**
      * 删除角色与菜单的关系
@@ -31,11 +31,10 @@ public interface RoleMenuRepository extends BaseRepository<RoleMenu> {
 
     /**
      * 获取用户的所有菜单集合
-     * @param principalId 用户id
      * @return 菜单集合
      */
-    @Nonnull
-    @Query("select distinct cirm.menuCode from RoleMenu cirm where exists (select 'X' from OrganizationRole cior where cirm.roleId = cior.roleId and exists (select 'X' from PrincipalOrganization cipo where cipo.organizationId = cior.organizationId and cipo.principalId = ?1))")
-    List<String> findAllMenuCodeByPrincipalId(@Nonnull String principalId);
+//    @Nonnull
+//    @Query("select distinct cirm.menuCode from RoleMenu cirm where exists (select 'X' from OrganizationRole cior where cirm.roleId = cior.roleId and exists (select 'X' from PrincipalOrganization cipo where cipo.organizationId = cior.organizationId and cipo.principalId = ?1))")
+//    List<String> findAllMenuCodeByPrincipalId(@Nonnull String principalId);
 
 }

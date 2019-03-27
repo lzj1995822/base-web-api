@@ -29,13 +29,13 @@ public class RoleMenuServiceTest {
         // 不使用注解，可以对单个对象进行 mock
         roleMenuRepository = Mockito.mock(RoleMenuRepository.class);
         // 构造被测试对象
-        roleMenuService = new RoleMenuServiceImpl(roleMenuRepository);
+//        roleMenuService = new RoleMenuServiceImpl(roleMenuRepository);
         // 打桩，构建当 userRepository的 getOne 函数执行参数为 1的时候，设置返回的结果 User
         List<RoleMenu> roleMenuList = new ArrayList<>();
         roleMenuList.add((RoleMenu) new RoleMenu().setId("123"));
-        Mockito.when(roleMenuRepository.findAllByRoleId("1")).thenReturn(roleMenuList);
+        Mockito.when(roleMenuRepository.findAllByRoleIdOrderByCreatedAtAsc("1")).thenReturn(roleMenuList);
         // 打桩，构建当 userRepository的 getOne 函数执行参数为 2的时候，设置返回的结果 null
-        Mockito.when(roleMenuRepository.findAllByRoleId("2")).thenReturn(new ArrayList<>());
+        Mockito.when(roleMenuRepository.findAllByRoleIdOrderByCreatedAtAsc("2")).thenReturn(new ArrayList<>());
 //        // 打桩，构建当 userRepository的 getOne 函数执行参数为 3的时候，设置结果抛出异常
 //        Mockito.when(roleMenuRepository.findAllByRoleId("1")).thenThrow(new IllegalArgumentException("The id is not support"));
         // 打桩，当 userRepository.updateUser 执行任何User类型的参数，返回的结果都是true

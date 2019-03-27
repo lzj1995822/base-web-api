@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * 角色菜单关联关系，中间表
@@ -34,8 +35,15 @@ public class RoleMenu extends BaseEntity {
     @JoinColumn(name = "roleId", insertable = false, updatable = false)
     private Role role;
 
-    /** 菜单编码 */
-    @ApiModelProperty(value = "菜单编码", position = 13, required = true)
-    @Column(length = 50)
-    private String menuCode;
+    /** 菜单id */
+    @ApiModelProperty(value = "菜单id", position = 13, required = true)
+    @Column(length = 36)
+    private String sysRouteId;
+
+    /** 角色 */
+    @ApiModelProperty(value = "菜单id", position = 15, required = true)
+    @ManyToOne
+    @JoinColumn(name = "sysRouteId", insertable = false, updatable = false)
+    private SysRoutes sysRoutes;
+
 }
